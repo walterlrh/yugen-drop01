@@ -2,6 +2,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+<script src="https://cdn.jsdelivr.net/npm/ethers/dist/ethers.min.js"></script>
+<script>
+  async function connectWallet() {
+    if (window.ethereum) {
+      try {
+        const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+        alert('Connected: ' + accounts[0]);
+      } catch (err) {
+        alert('Connection error');
+      }
+    } else {
+      alert('Please install MetaMask!');
+    }
+  }
+</script>
+
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>YŪGEN | Drop 01</title>
@@ -16,7 +34,8 @@
       <a href="#">Community</a>
       <a href="#">Wallet</a>
     </nav>
-    <button class="wallet-btn">Connect Wallet</button>
+<button onclick="connectWallet()">Connect Wallet</button>
+
   </header>
 
   <section class="hero">
